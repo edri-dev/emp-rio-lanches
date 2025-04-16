@@ -1,85 +1,98 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empório Lanches</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #fff;
-      color: #333;
+      margin: 0;
+      padding: 0;
     }
     header {
-      background-color: #a0522d; /* marrom pão de hambúrguer */
-      color: #ffd700; /* amarelo */
+      background-color: #f4c542;
+      color: #5c4033;
       text-align: center;
-      padding: 20px;
+      padding: 1em 0;
+      font-family: 'Chewy', cursive;
+      font-size: 2em;
     }
-    h1 {
-      margin: 0;
-      font-family: 'Pacifico', cursive;
-      font-size: 2.5em;
-    }
-    .container {
+    main {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 20px;
+      padding: 2em;
     }
     .card {
-      width: 280px;
+      border: 5px solid #5c4033;
       border-radius: 20px;
-      background-color: #fff3dc;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 20px;
+      background-image: url('https://i.imgur.com/0KfbX7B.png'); /* Moldura tipo hambúrguer (pode trocar) */
+      background-size: cover;
+      background-position: center;
+      width: 280px;
+      margin: 1em;
       text-align: center;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/3075/3075977.png');
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-size: 60px;
-      padding-top: 80px;
+      padding: 1em;
+      color: #5c4033;
+      box-shadow: 0 0 10px #ccc;
+      position: relative;
     }
     .card h2 {
-      margin: 10px 0 5px;
+      font-family: 'Chewy', cursive;
+      margin-bottom: 0.5em;
     }
     .card p {
-      font-size: 18px;
-      font-weight: bold;
-      color: #a0522d;
+      margin: 0.5em 0;
     }
-    footer {
-      background-color: #a0522d;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
+    .card button {
+      background-color: #f4c542;
+      border: none;
+      padding: 0.6em 1.2em;
+      border-radius: 10px;
+      font-weight: bold;
+      color: #5c4033;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card button:hover {
+      background-color: #e5b131;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Empório Lanches</h1>
-    <p>Delícias artesanais direto pra sua fome!</p>
-  </header>
-  <div class="container">
+
+  <header>Empório Lanches</header>
+
+  <main>
     <div class="card">
       <h2>X-Tudo</h2>
-      <p>R$ 19,90</p>
+      <p>Pão, hambúrguer, queijo, presunto, ovo, bacon e batata palha</p>
+      <button onclick="pedir('X-Tudo')">Pedir pelo WhatsApp</button>
     </div>
+
     <div class="card">
       <h2>Dogão</h2>
-      <p>R$ 14,90</p>
+      <p>Salsicha, purê, vinagrete, milho, ervilha, batata palha e molho especial</p>
+      <button onclick="pedir('Dogão')">Pedir pelo WhatsApp</button>
     </div>
+
     <div class="card">
       <h2>Torre de Batata</h2>
-      <p>R$ 22,90</p>
+      <p>Camadas de batata frita, cheddar, bacon e tempero da casa</p>
+      <button onclick="pedir('Torre de Batata')">Pedir pelo WhatsApp</button>
     </div>
-  </div>
-  <footer>
-    © 2025 Empório Lanches. Todos os direitos reservados.
-  </footer>
+  </main>
+
+  <script>
+    function pedir(produto) {
+      const numero = '5511999999999'; // Troca aqui pelo número real com DDD (ex: 5511988887777)
+      const mensagem = `Olá! Quero pedir um ${produto} do Empório Lanches!`;
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
 </body>
 </html>
